@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Practica 2</string>
+    <string name="otra_actividad">otra_actividad</string>
+    <string name="otra_actividad2">otra actividad 2</string>
+    <string name="nombre"> Nombre</string>
+    <string name="apellido"> Apellido</string>
+    <string name="cedula"> Cedula</string>
+    <string name="telefono"> Telefono</string>
+    <string name="correo"> Correo</string>
+    <string name="contrasena"> Contraseña</string>
+    <string name="Rcontrasena"> Confirmar Contraseña</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer </string>
+    <string name="paisdenacimiento">Pais de Nacimiento</string>
+    <string name="terminos">Leer terminos y condiciones</string>
+    <string name="REGISTRO">No tienes cuenta\n registrate Click aqui</string>
+    <string-array name="Paises">
+        <item>Pais de Nacimiento</item>
+        <item>EEUU</item>
+        <item>MEXICO</item>
+        <item>COLOMBIA</item>
+        <item>VENEZUELA</item>
+        <item>BRASIL</item>
+        <item>PERU</item>
+        <item>ECUADOR</item>
+        <item>BOLIVIA</item>
+        <item>ARGENTINA</item>
+        <item>CHILE</item>
+    </string-array>
+</resources>
