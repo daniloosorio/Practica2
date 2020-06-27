@@ -30,7 +30,7 @@ class login : AppCompatActivity() {
         }
     }
     private fun goToMain(correo_r:String,contrasena_r:String){
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivityFragment::class.java)
         intent.putExtra("correo",correo_r)
         intent.putExtra("contrasena", contrasena_r)
         startActivity(intent)
