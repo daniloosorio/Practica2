@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.daniloosorio.prueba5">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ConfiguracionesActivity"
+            android:label="Configuraciones"></activity>
+        <activity android:name=".PerfilActivity"
+            android:label="Perfil"/>
         <activity
             android:name=".MainActivityFragment"
-            android:label="@string/title_activity_main_fragment"></activity>
+            android:label="@string/title_activity_main_fragment" />
         <activity
             android:name=".Registro"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -19,7 +23,9 @@
             android:name=".login"
             android:launchMode="singleTask"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/CustomTheme"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

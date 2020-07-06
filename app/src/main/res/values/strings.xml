@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practica 2</string>
+    <string name="app_name">Smart Home</string>
     <string name="otra_actividad">otra_actividad</string>
     <string name="otra_actividad2">otra actividad 2</string>
     <string name="nombre"> Nombre</string>
@@ -28,13 +28,24 @@
         <item>CHILE</item>
     </string-array>
     <string name="title_activity_main_fragment">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_principal">Principal</string>
     <string name="title_dispositivos">Dispositivos</string>
+    <string name="title_notification">Chat y Notificaciones</string>
+    <string name="title_musica">Musica</string>
+    <string name="title_mascotas">Mascotas</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="principal">principal</string>
     <string name="dispositivos">Dispositivos</string>
+    <string name="notification">Chats</string>
+    <string name="musica">Musica</string>
+    <string name="mascotas">mascotas</string>
+    <string name="perfil">Perfil</string>
+    <string name="configuraciones">Configuraciones</string>
+    <string name="Led">led</string>
+    <string name="door">Door</string>
+    <string name="ventilador">Ventilador</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="nuevasmascotas">Nueva mascota</string>
+
 </resources>

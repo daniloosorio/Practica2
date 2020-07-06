@@ -27,6 +27,7 @@ class login : AppCompatActivity() {
                     goToMain(correo_recibido,contrasena_recibida)
                 }else{Toast.makeText(this, "Correo o contraseña incorrecto", Toast.LENGTH_SHORT).show()}
             }
+            //goToMain(usuario,contrasena)
         }
     }
     private fun goToMain(correo_r:String,contrasena_r:String){

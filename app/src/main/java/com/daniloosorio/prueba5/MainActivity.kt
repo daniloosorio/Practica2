@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.perfil -> {
+            R.id.navigation_perfil -> {
                 tv_mensaje.text="perfil no disponible"
             }
-            R.id.configuraciones -> {
+            R.id.navigation_configuraciones -> {
                 tv_mensaje.text="configuraciones no disponibles"
             }
             R.id.cerrar -> {

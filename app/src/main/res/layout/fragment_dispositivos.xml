@@ -1,14 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="55dp"
     tools:context=".fragmentos.DispositivosFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="este es el fragmento de dispositivos" />
 
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/ib_ventilador"
+        android:layout_width="169dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/botonfan"
+        app:layout_constraintEnd_toStartOf="@+id/ib_temp"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ib_led"
+        android:layout_width="174dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/bombillo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_temp" />
+
+    <ImageButton
+        android:id="@+id/ib_door"
+        android:layout_width="170dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/door"
+        app:layout_constraintEnd_toStartOf="@+id/ib_led"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_ventilador" />
+
+    <ImageButton
+        android:id="@+id/ib_temp"
+        android:layout_width="168dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/temperature"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="86dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="104dp"
+        android:text="on/off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.323"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="292dp"
+        android:text="on/off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="293dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:text="En esta seccion se puede \n acceder a los Dispositivos disponibles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
