@@ -47,5 +47,9 @@
     <string name="ventilador">Ventilador</string>
     <string name="temperatura">Temperatura</string>
     <string name="nuevasmascotas">Nueva mascota</string>
+    <string name="genero">Genero</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="fechadenacimiento">Fecha de nacimiento</string>
+    <string name="usuariosregistrados">Usuarios Registrados</string>
 
 </resources>

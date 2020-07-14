@@ -1,14 +1,18 @@
 package com.daniloosorio.prueba5
 
 import android.app.DatePickerDialog
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.DatePicker
+import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.daniloosorio.prueba5.remote.UserRemote
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_registro.*
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class Registro : AppCompatActivity() {
     private var fecha :String=""
@@ -16,6 +20,10 @@ class Registro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
+        val mAuth : FirebaseAuth = FirebaseAuth.getInstance()
+        val database : FirebaseDatabase = FirebaseDatabase.getInstance()
+        val myRef : DatabaseReference =database.getReference("usuarios")
+        val id :String? = myRef.push().key
         //////////tomar datos del calendario//////////
         val dateSetListener= DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
             cal.set(Calendar.YEAR,year)
@@ -35,6 +43,7 @@ class Registro : AppCompatActivity() {
         }
 ////////////boton guardar///////////////////
         bt_guardar.setOnClickListener {
+
             val nombre = ed_nombre.text.toString()
             val apellido=ed_apellido.text.toString()
             val cedula=ed_cedula.text.toString()
@@ -50,20 +59,60 @@ class Registro : AppCompatActivity() {
             if(ver_vacios){
                 if(contrasena.length>6){
                     if(contrasena==Rcontrasena){
+                        mAuth.createUserWithEmailAndPassword(correo,contrasena)
+                            .addOnCompleteListener(
+                                this
+                            ) { task ->
+                                if (task.isSuccessful) {
+                                   crearUsuarioEnBaseDeDatos(id,nombre,apellido,cedula,telefono,correo,genero,ciudadnacimiento,fecha,myRef)
+                                    onBackPressed()
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w("tag", "createUserWithEmail:failure", task.getException())
+                                    Toast.makeText(
+                                        this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+
+                                // ...
+                            }
 ///////////////////////////////cambiar a actividad login y salvar los datos///////////////////////
-                        val intent = Intent(this, login::class.java)
-                        intent.putExtra("correo",correo)
-                        intent.putExtra("contrasena",contrasena)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(intent)
-                        finish()
                     }else{ Toast.makeText(this, "Las Cotraseñas no son iguales !!!", Toast.LENGTH_SHORT).show()}
                 }else{Toast.makeText(this, "Contraseña muy corta debe ser de mas de 6 caracterers.", Toast.LENGTH_SHORT).show()}
             }
         }
     }
 
-//////////////////////////////////funcion para vacios////////////////////////////////////////
+    private fun crearUsuarioEnBaseDeDatos(
+        id: String?,
+        nombre: String,
+        apellido: String,
+        cedula: String,
+        telefono: String,
+        correo: String,
+        genero: String,
+        ciudadnacimiento: String,
+        fecha: String,
+        myRef: DatabaseReference
+    ) {
+        val usuario = UserRemote(
+            id,
+            nombre,
+            apellido,
+            cedula,
+            telefono,
+            correo,
+            genero,
+            ciudadnacimiento,
+            fecha
+        )
+        myRef.child(id!!).setValue(usuario)
+        Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show()
+
+    }
+
+    //////////////////////////////////funcion para vacios////////////////////////////////////////
     fun vacios(nombre :String, apellido: String, cedula : String,
                telefono :String ,correo : String,contrasena : String,
                rcontrasena: String,paisdenacimiento: String, fecha_nacimiento: String, terminos: String): Boolean {
