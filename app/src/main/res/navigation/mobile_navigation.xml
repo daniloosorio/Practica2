@@ -101,5 +101,9 @@
         android:id="@+id/navigation_nueva_macosta"
         android:name="com.daniloosorio.prueba5.fragmentos.NmascotasFragment"
         android:label="@string/nuevasmascotas"
-        tools:layout="@layout/fragment_nmascotas" />
+        tools:layout="@layout/fragment_nmascotas" >
+        <action
+            android:id="@+id/action_navigation_nueva_macosta_to_navigation_mascotas"
+            app:destination="@id/navigation_mascotas" />
+    </fragment>
 </navigation>

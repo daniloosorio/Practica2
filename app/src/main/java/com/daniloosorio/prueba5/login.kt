@@ -46,7 +46,7 @@ class login : AppCompatActivity() {
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(
-                                this, "Authentication failed.",
+                                this, "Correo o contraseña incorrecto",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }

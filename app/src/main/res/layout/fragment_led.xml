@@ -8,17 +8,20 @@
     tools:context=".fragmentos.ledFragment" >
 
     <com.marcinmoskala.arcseekbar.ArcSeekBar
-        android:id="@+id/arcSeekBar"
+        android:id="@+id/seekArc"
         android:layout_width="318dp"
         android:layout_height="177dp"
         android:layout_marginTop="60dp"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:maxProgress="100"
         app:progressBackgroundColor="@color/colorPrimary"
         app:progressColor="@color/colorAccent"
-        app:thumb="@drawable/thumb2" />
+        app:thumb="@drawable/thumb2"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/textView5"
@@ -34,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switch3"
+        android:id="@+id/switch_led"
         android:layout_width="103dp"
         android:layout_height="53dp"
         android:layout_marginTop="192dp"

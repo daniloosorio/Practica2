@@ -2,10 +2,12 @@ package com.daniloosorio.prueba5.fragmentos
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.daniloosorio.prueba5.R
 import kotlinx.android.synthetic.main.fragment_dispositivos.*
@@ -24,6 +26,8 @@ class DispositivosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         passData("F")
         ib_led.setOnClickListener {
+            Log.d("hola","si")
+            Toast.makeText(context, "olaaa", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_navigation_dispositivos_to_navigation_led)
         }
         ib_door.setOnClickListener {

@@ -100,6 +100,9 @@ class MainActivityFragment : AppCompatActivity(),
             }
             backpressedtime = System.currentTimeMillis()
         }else super.onBackPressed()
+
+
+
     }
     override fun onDataPass(data: String) {
         //Log.d("LOG","hello " + data)

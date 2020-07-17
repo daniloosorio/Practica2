@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switch4"
+        android:id="@+id/switch_fan"
         android:layout_width="91dp"
         android:layout_height="41dp"
         android:layout_marginTop="16dp"
@@ -36,5 +36,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:max="100"
+        android:min="0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

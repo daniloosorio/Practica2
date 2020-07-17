@@ -67,12 +67,16 @@ class Registro : AppCompatActivity() {
                                    crearUsuarioEnBaseDeDatos(id,nombre,apellido,cedula,telefono,correo,genero,ciudadnacimiento,fecha,myRef)
                                     onBackPressed()
                                 } else {
-                                    // If sign in fails, display a message to the user.
-                                    Log.w("tag", "createUserWithEmail:failure", task.getException())
-                                    Toast.makeText(
-                                        this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    if (task.getException()?.message.toString() == "The email address is badly formatted.") {
+                                        Toast.makeText(this, "Correo no valido", Toast.LENGTH_SHORT).show()
+                                    } else if (task.getException()?.message.toString() == "The given password is invalid. [ Password should be at least 6 characters ]") {
+                                        Toast.makeText(this, "La contraseña debe tener mas de 6 caracteres", Toast.LENGTH_SHORT).show()
+                                    } else if(task.getException()?.message.toString()=="The email address is already in use by another account."){
+                                        Toast.makeText(this, "El correo ya esta registrado", Toast.LENGTH_SHORT).show()
+                                    }else {
+                                        Toast.makeText(this, "Authentication failed.${task.getException()?.message.toString()}", Toast.LENGTH_SHORT).show()
+                                        Log.w("TAG", "signInWithEmail:failure", task.getException())
+                                    }
                                 }
 
                                 // ...
