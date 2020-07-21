@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/sw_fan"
         android:layout_width="86dp"
         android:layout_height="31dp"
         android:layout_marginTop="104dp"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/switch2"
+        android:id="@+id/sw_led"
         android:layout_width="87dp"
         android:layout_height="30dp"
         android:layout_marginTop="292dp"

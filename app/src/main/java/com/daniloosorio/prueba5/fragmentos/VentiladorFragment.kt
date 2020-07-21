@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.Toast
 import com.daniloosorio.prueba5.R
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.fragment_dispositivos.*
 import kotlinx.android.synthetic.main.fragment_led.*
 import kotlinx.android.synthetic.main.fragment_ventilador.*
 
@@ -27,6 +31,7 @@ class VentiladorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var estado=switch_fan
+        buscarEnFirebase("estado")
         estado?.setOnCheckedChangeListener { _, isChecked ->
             val message = if (isChecked) "ON" else "OFF"
             ActualizarEnFireBase(1,message)
@@ -66,6 +71,20 @@ class VentiladorFragment : Fragment() {
             myRef.child("ventilador").updateChildren(chilUpdate)
             //myRef.updateChildren(chilUpdate)
         }
+    }
+    private fun buscarEnFirebase(correo: String) {
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("dispositivos").child("ventilador")
+        val postListener = object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+            }
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var estado =snapshot.child("estado").value.toString()
+                if(estado=="ON"){switch_fan.setChecked(true)}else{switch_fan.setChecked(false)}
+                Toast.makeText(context, "$estado", Toast.LENGTH_SHORT).show()
+            }
+        }
+        myRef.addListenerForSingleValueEvent(postListener)
     }
 
 }

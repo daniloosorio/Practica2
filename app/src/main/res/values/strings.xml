@@ -54,7 +54,7 @@
     <string name="edad">Edad</string>
     <string name="cerogramos">0gr</string>
     <string-array name="mascotas">
-        <item>Seleccione el tipo de mascota v</item>
+        <item>Seleccione el tipo de mascota</item>
         <item>Perro</item>
         <item>Gatos</item>
         <item>Aves</item>

@@ -4,14 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_gradient"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragmentos.NmascotasFragment" >
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="Agregar un nueva mascota"
+        android:textSize="24sp" />
+
     <Spinner
         android:id="@+id/sp_mascotas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="51dp"
+        android:layout_marginHorizontal="20dp"
         android:entries="@array/mascotas" />
 
     <EditText
@@ -19,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginHorizontal="20dp"
         android:hint="@string/nombre"
         android:inputType="textPersonName" />
 
@@ -27,12 +39,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginHorizontal="20dp"
         android:hint="@string/edad"
         android:inputType="number" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -55,6 +69,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -78,6 +93,7 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
         android:layout_height="wrap_content"
         android:text="Dias:"
         android:textSize="24sp" />
@@ -188,6 +204,8 @@
     <Button
         android:id="@+id/bt_guardar"
         android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bt_circular"
         android:layout_height="wrap_content"
         android:text="Guardar" />
 

@@ -1,18 +1,14 @@
 package com.daniloosorio.prueba5.fragmentos
 
 import android.os.Bundle
+import android.text.BoringLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.fragment.findNavController
-import com.daniloosorio.prueba5.MainActivityFragment
 import com.daniloosorio.prueba5.R
 import com.daniloosorio.prueba5.remote.MascotaRemote
-import com.daniloosorio.prueba5.remote.UserRemote
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_nmascotas.*
@@ -34,10 +30,18 @@ class NmascotasFragment : Fragment(){
         bt_guardar.setOnClickListener {
             if(vacios()){
                 val nombre =et_nombre.text.toString()
+                val tipo=sp_mascotas.selectedItem.toString()
                 val edad =et_edad.text.toString()
                 val peso =et_peso.text.toString()
                 val intervalos = et_intervalos.text.toString()
-                crearMascotaEnBaseDeDatos(id,nombre,edad,peso,intervalos)
+                val l = cb_L.isChecked
+                val m = cb_M.isChecked
+                val w = cb_W.isChecked
+                val j = cb_J.isChecked
+                val v = cb_V.isChecked
+                val s = cb_S.isChecked
+                val d = cb_D.isChecked
+                crearMascotaEnBaseDeDatos(id,nombre,tipo,edad,peso,intervalos,l,m,w,j,v,s,d)
                 Toast.makeText(context, "mascota agregada", Toast.LENGTH_SHORT).show()
                 //findNavController().navigate(R.id.action_navigation_nueva_macosta_to_navigation_mascotas)
                 getActivity()?.onBackPressed()
@@ -63,19 +67,35 @@ class NmascotasFragment : Fragment(){
     }
 
     private fun crearMascotaEnBaseDeDatos(
-        id : String?,
+        id: String?,
         nombre: String,
-        edad : String,
-        peso : String,
-        intervalos : String
+        tipo: String,
+        edad: String,
+        peso: String,
+        intervalos: String,
+        l: Boolean,
+        m: Boolean,
+        w: Boolean,
+        j: Boolean,
+        v: Boolean,
+        s: Boolean,
+        d: Boolean
         //dias : String
     ) {
         val mascota = MascotaRemote(
             id,
             nombre,
+            tipo,
             edad,
             peso,
-            intervalos
+            intervalos,
+            l,
+            m,
+            w,
+            j,
+            v,
+            s,
+            d
          //   dias
         )
         myRef.child(id!!).setValue(mascota)
