@@ -53,6 +53,10 @@
     <string name="usuariosregistrados">Usuarios Registrados</string>
     <string name="edad">Edad</string>
     <string name="cerogramos">0gr</string>
+    <string name="reproductor_audio">Reproductor Audio</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
     <string-array name="mascotas">
         <item>Seleccione el tipo de mascota</item>
         <item>Perro</item>
